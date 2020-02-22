@@ -15,7 +15,7 @@ export class LoginService {
     return this.http.post<LoginResponseData>(
       'http://localhost:8080/api/auth/login',
       {
-        emailOrUsername: email,
+        usernameOrEmail: email,
         password
       });
   }
