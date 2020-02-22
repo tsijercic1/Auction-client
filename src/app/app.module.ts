@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import { RegistrationComponent } from './registration/registration.component';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { ShopComponent } from './shop/shop.component';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import {HttpClientModule} from '@angular/common/http';
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
+    HomeComponent,
+    ShopComponent,
+    MyAccountComponent,
   ],
   imports: [
     BrowserModule,
