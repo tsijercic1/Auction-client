@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {LoginService} from './login.service';
+import {Router} from '@angular/router';
+import {error} from 'util';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +11,25 @@ import {LoginService} from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit(loginForm: NgForm) {
+  async onSubmit(loginForm: NgForm) {
     console.log(loginForm.value);
     const email = loginForm.value.email;
     const password = loginForm.value.password;
-    this.loginService.login(email, password).subscribe(resData => {
-        console.log(resData);
-      },
-      error => console.log(error));
-    loginForm.reset();
+    const response = await this.loginService.login(email, password);
+    if (response) {
+      response.subscribe(userData => {
+        console.log(userData);
+        loginForm.reset();
+        this.router.navigateByUrl('/home');
+      }, _ => {
+        this.router.navigateByUrl('/login');
+      });
+    }
   }
 }
