@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {LoginService} from '../login/login.service';
 import {Router} from '@angular/router';
 import {RegistrationService} from './registration.service';
+import {last} from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -22,15 +23,6 @@ export class RegistrationComponent implements OnInit {
     const lastName = registrationForm.value.last_name;
     const email = registrationForm.value.email;
     const password = registrationForm.value.password;
-    // const response = await this.registrationService.register(firstName, lastName, email, password);
-    // if (response) {
-    //   response.subscribe(userData => {
-    //     console.log(userData);
-    //     registrationForm.reset();
-    //     this.router.navigateByUrl('/home');
-    //   }, _ => {
-    //     this.router.navigateByUrl('/register');
-    //   });
-    // }
+    this.registrationService.register(firstName, lastName, email, password);
   }
 }
