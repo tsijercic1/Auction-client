@@ -13,18 +13,7 @@ export class RegistrationService {
 
   }
 
-  async register(name: any, surname: any, email: string, password: string) {
-    const response = await this.http.post<RegistrationResponseData>('http://localhost:8080/api/auth/register', {
-      name,
-      surname,
-      username: 'test',
-      email,
-      password
-    });
-    response
-      .subscribe(object => {
-      this.loginService.refresh(object.accessToken);
-    });
-    return response;
+  register(name: any, surname: any, email: string, password: string) {
+
   }
 }
