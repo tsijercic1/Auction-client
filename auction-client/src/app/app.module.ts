@@ -18,6 +18,8 @@ import { CategoryListComponent } from './shop/category-list/category-list.compon
 import { CategoryItemComponent } from './shop/category-list/category-item/category-item.component';
 import {CommonModule} from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component';
+import { SpacerComponent } from './spacer/spacer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CategoryListComponent,
     CategoryItemComponent,
     NotFoundComponent,
+    FooterComponent,
+    SpacerComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
         .split('/')
         .map(
           (element, index) => {
-            if ( index === 0 ){
+            if ( index === 0 ) {
               return '';
             }
             const capitalization = (index + 1 === length) ? 'active text-capitalize' : '';
@@ -37,7 +37,11 @@ export class HeaderComponent implements OnInit {
                 ${item}
                 </li>`;
           }).join('\n');
-
+      if (this.breadcrumb.includes('home')) {
+        document.getElementById('breadcrumbs').classList.add('not-present');
+      } else {
+        document.getElementById('breadcrumbs').classList.remove('not-present');
+      }
     });
   }
 

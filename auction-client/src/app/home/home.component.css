@@ -1,0 +1,37 @@
+.home-showcase{
+  height: 563px;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.hruler {
+  height: 4px;
+  background-color: #ebebeb;
+  color: #7e6ed3;
+}
+.feature-container {
+  width: 1100px;
+}
+
+.feature-list {
+  width: 100%;
+}
+
+
+.feature-collection-item {
+  height: 416px;
+  width: 350px;
+  background-color: #252525;
+}
+
+.feature-product-item {
+  height: 416px;
+  width: 260px;
+  background-color: #252525;
+}
+
+.spacer {
+  height: 25px;
+  background-color: transparent;
+  border: 0;
+}
