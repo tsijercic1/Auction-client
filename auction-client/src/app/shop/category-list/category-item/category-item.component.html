@@ -9,6 +9,6 @@
     </ng-template>
   </div>
   <ul *ngIf="clicked" class="px-0" id="subcategories">
-    <li *ngFor="let sub of category.subcategories">{{sub}}</li>
+    <li *ngFor="let sub of category.subcategories">{{sub.name}}</li>
   </ul>
 </div>

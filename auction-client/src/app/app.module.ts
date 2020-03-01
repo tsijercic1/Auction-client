@@ -20,6 +20,7 @@ import {CommonModule} from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpacerComponent } from './spacer/spacer.component';
+import {CategoryService} from './category.service';
 
 @NgModule({
   declarations: [
