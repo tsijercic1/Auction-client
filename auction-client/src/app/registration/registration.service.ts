@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from '../login/login.service';
-import {environment} from '../../environments/environment';
+import environment from '../../environments/environment';
 import {Router} from '@angular/router';
 
 @Injectable({providedIn: 'root'})

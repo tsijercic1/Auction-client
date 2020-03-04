@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../../product.model';
 import {ProductsService} from '../products.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import environment from '../../../environments/environment';
 
 @Component({
   selector: 'app-single-product',
@@ -10,17 +11,36 @@ import {Router} from '@angular/router';
 })
 export class SingleProductComponent implements OnInit {
   public product: Product;
+  public currentPicture: string;
   public highestBid;
 
-  constructor(private productsService: ProductsService, private router: Router) {
-    this.product = new Product();
-    this.product.name = 'Nike magista';
-    this.product.startPrice = 240.00;
-    this.highestBid = 260.0;
-    console.log(this.router.routerState.snapshot.url);
+  constructor(private productsService: ProductsService, private router: Router, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      productsService.getProduct(params.id).subscribe(product => {
+        this.product = new Product();
+        this.product.id = product.id;
+        this.product.name = product.name;
+        this.product.description = product.description;
+        this.product.startPrice = product.startPrice;
+        console.log(environment.baseUrl);
+        this.product.pictures = product.pictures.map(picture => environment.baseUrl + picture);
+        console.log(this.product.pictures);
+        if (product.pictures.length !== 0) {
+          this.currentPicture = this.product.pictures[0];
+        } else {
+          this.currentPicture = '';
+        }
+      }, error => {
+        this.router.navigateByUrl('/404');
+      });
+    });
   }
 
   ngOnInit() {
   }
 
+  setCurrentPicture(event: Event) {
+    const element = (event.target as Element);
+    this.currentPicture = element.attributes.getNamedItem('src').value;
+  }
 }

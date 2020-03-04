@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import environment from '../../environments/environment';
 
 interface SubcategoryResponseData {
   id: number;
@@ -30,7 +30,11 @@ export class ProductsService {
 
   }
 
-  public getProductResponse(id: number) {
+  public getProduct(id: number) {
     return this.http.get<ProductResponseData>(environment.apiUrl + '/products/' + id);
+  }
+
+  public getProducts() {
+    return this.http.get<ProductResponseData>(environment.apiUrl + '/products');
   }
 }

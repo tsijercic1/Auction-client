@@ -2,45 +2,19 @@
   <app-spacer></app-spacer>
   <div class="product-container bg-red row">
     <div class="col-auto px-0 mr-5">
-      <img class="product-picture"
-           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+      <img  class="product-picture"
+           src="{{currentPicture}}"
            alt="Picture"/>
-      <div class="row mx-0 mt-2 justify-content-start picture-list">
-        <div >
+      <div class="row mx-0 mt-2 justify-content-between picture-list">
+
+        <div *ngFor="let picture of product.pictures" class="mx-0">
           <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
+               src="{{picture}}"
+               alt="Picture"
+               (click)="setCurrentPicture($event)"
+          />
         </div>
-        <div >
-          <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
-        </div>
-        <div >
-          <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
-        </div>
-        <div >
-          <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
-        </div>
-        <div >
-          <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
-        </div>
-        <div >
-          <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
-        </div>
-        <div >
-          <img class="product-small-picture px-0"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
-               alt="Picture"/>
-        </div>
+
       </div>
     </div>
     <div class="col-auto mx-0">
