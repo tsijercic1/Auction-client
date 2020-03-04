@@ -1,0 +1,59 @@
+<div class="col-10 mx-auto">
+  <app-spacer></app-spacer>
+  <div class="product-container bg-red row">
+    <div class="col-auto px-0 mr-5">
+      <img class="product-picture"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+           alt="Picture"/>
+      <div class="row mx-0 mt-2 justify-content-start picture-list">
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+        <div >
+          <img class="product-small-picture px-0"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAAAA1BMVEXr6+uInxNMAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8GxXYAARizDlgAAAAASUVORK5CYII="
+               alt="Picture"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto mx-0">
+      <h1>{{product.name}}</h1>
+      <h3 class="price">Start from - ${{product.startPrice}}</h3>
+      <app-spacer></app-spacer>
+      <div class="justify-content-center mt-2">
+        <input type="number" step="0.01" class="rounded-0 border-0 p-3 align-middle bid-input mr-4"/>
+        <input type="button" value="PLACE BID >" class="rounded-0 p-2 align-middle bid-button"/>
+      </div>
+      <p class="pale">Enter {{highestBid}} or more</p>
+      <app-spacer></app-spacer>
+    </div>
+
+  </div>
+</div>

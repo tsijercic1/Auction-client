@@ -1,7 +1,9 @@
-.home-showcase{
+.home-showcase {
   height: 563px;
   width: 100%;
   background-color: #fafafa;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .hruler {
@@ -35,3 +37,24 @@
   background-color: transparent;
   border: 0;
 }
+
+.category-container {
+  height: 100%;
+  width: 253px;
+  box-shadow: 2px 2px #dddddd;
+}
+
+
+.scroll-menu {
+  padding: 0;
+  height: 90%;
+  overflow-y: auto;
+}
+
+.scroll-item {
+  display: block;
+  text-decoration: none;
+  padding: 12px 12px 12px 12px;
+  color: #2a2a2a;
+}
+

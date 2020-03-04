@@ -21,7 +21,8 @@ export class RegistrationService {
       }).subscribe(res => {
       this.router.navigateByUrl('/login');
     }, error => {
-      alert('An error occurred');
+      console.log(error);
+      alert(error);
     });
   }
 }

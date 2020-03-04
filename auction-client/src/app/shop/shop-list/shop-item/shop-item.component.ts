@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../../product.model';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ShopItemComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('product') product: Product;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
 
@@ -27,5 +28,10 @@ export class ShopItemComponent implements OnInit {
 
   public getStartPrice() {
     return this.product.startPrice;
+  }
+
+  public goToProduct(id: number) {
+    console.log(id);
+    // this.router.navigateByUrl('/shop/')
   }
 }

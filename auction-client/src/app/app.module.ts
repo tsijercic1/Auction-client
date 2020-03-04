@@ -21,6 +21,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpacerComponent } from './spacer/spacer.component';
 import {CategoryService} from './category.service';
+import { SingleProductComponent } from './shop/single-product/single-product.component';
+import { ShocaseProductComponent } from './home/shocase-product/shocase-product.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {CategoryService} from './category.service';
     NotFoundComponent,
     FooterComponent,
     SpacerComponent,
+    SingleProductComponent,
+    ShocaseProductComponent,
   ],
   imports: [
     BrowserModule,

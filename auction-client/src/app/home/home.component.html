@@ -1,6 +1,15 @@
 <div class="justify-content-center mx-auto my-5">
-  <div class="home-showcase">
+  <div class="home-showcase row justify-content-center">
+    <div class="category-container col-2 justify-content-center px-0">
+      <p style="color: #7e6ed3;font-weight: bold;padding-left: 12px">PRODUCT CATEGORIES</p>
+      <div class="scroll-menu">
+        <a class="scroll-item border-bottom" *ngFor="let cat of categories" [routerLink]="['/shop?category=' + cat.name]">{{cat.name}}</a>
+      </div>
 
+    </div>
+    <div class="product-showcase col-8 px-0 h-100">
+      <app-shocase-product></app-shocase-product>
+    </div>
   </div>
   <app-spacer></app-spacer>
   <div class="feature-container mx-auto">
