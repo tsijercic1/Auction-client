@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../../product.model';
+import {ProductsService} from '../products.service';
+import environment from '../../../environments/environment';
 
 @Component({
   selector: 'app-shop-list',
@@ -8,13 +10,24 @@ import {Product} from '../../product.model';
 })
 export class ShopListComponent implements OnInit {
 
-  private product: Product;
-  constructor() {
-    this.product = new Product();
-    this.product.name = 'Shoeees';
-    this.product.startPrice = 100;
-    this.product.pictures = new Array<string>();
-    this.product.pictures.push('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Black_Converse_sneakers.JPG/1200px-Black_Converse_sneakers.JPG');
+  private products: Array<Product>;
+
+  constructor(private productsService: ProductsService) {
+    this.products = new Array<Product>();
+    productsService.getProducts().subscribe(products => {
+      products.map(product => {
+        const result = new Product();
+        result.id = product.id;
+        result.name = product.name;
+        result.description = product.description;
+        result.pictures = product.pictures.map(picture => environment.baseUrl + picture);
+        result.startPrice = product.startPrice;
+        result.auctionStart = product.auctionStart;
+        result.auctionEnd = product.auctionEnd;
+        console.log(result);
+        return result;
+      }).forEach(product => this.products.push(product));
+    }, error => alert('Server is down. Please come back later'));
   }
 
 

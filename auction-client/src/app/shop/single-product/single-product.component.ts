@@ -15,6 +15,7 @@ export class SingleProductComponent implements OnInit {
   public highestBid;
 
   constructor(private productsService: ProductsService, private router: Router, private route: ActivatedRoute) {
+    this.product = new Product();
     this.route.params.subscribe(params => {
       productsService.getProduct(params.id).subscribe(product => {
         this.product = new Product();
@@ -22,9 +23,7 @@ export class SingleProductComponent implements OnInit {
         this.product.name = product.name;
         this.product.description = product.description;
         this.product.startPrice = product.startPrice;
-        console.log(environment.baseUrl);
         this.product.pictures = product.pictures.map(picture => environment.baseUrl + picture);
-        console.log(this.product.pictures);
         if (product.pictures.length !== 0) {
           this.currentPicture = this.product.pictures[0];
         } else {

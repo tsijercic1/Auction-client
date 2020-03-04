@@ -35,6 +35,6 @@ export class ProductsService {
   }
 
   public getProducts() {
-    return this.http.get<ProductResponseData>(environment.apiUrl + '/products');
+    return this.http.get<Array<ProductResponseData>>(environment.apiUrl + '/products');
   }
 }
