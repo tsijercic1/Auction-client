@@ -1,0 +1,37 @@
+<div class="justify-content-center mx-auto my-5">
+  <div class="home-showcase row justify-content-center">
+    <div class="category-container col-2 justify-content-center px-0">
+      <p style="color: #7e6ed3;font-weight: bold;padding-left: 12px">PRODUCT CATEGORIES</p>
+      <div class="scroll-menu">
+        <a class="scroll-item border-bottom" *ngFor="let cat of categories" [routerLink]="['/shop?category=' + cat.name]">{{cat.name}}</a>
+      </div>
+
+    </div>
+    <div class="product-showcase col-8 px-0 h-100">
+      <app-showcase-product [product]="showcaseProduct"></app-showcase-product>
+    </div>
+  </div>
+  <app-spacer></app-spacer>
+  <div class="feature-container mx-auto">
+    <h3>Feature collection</h3>
+    <hr class="hruler w-100 ">
+    <div class="row justify-content-between feature-collection-list mx-0">
+      <div *ngFor="let product of featureCollections" class="feature-collection-item col-auto px-0">
+        <app-feature-item [product]="product"></app-feature-item>
+      </div>
+    </div>
+
+  </div>
+  <app-spacer></app-spacer>
+  <div class="feature-container mx-auto">
+    <h3>Feature products</h3>
+    <hr class="hruler w-100 ">
+    <div class="row justify-content-between feature-list mx-0">
+      <div *ngFor="let product of featureProducts" class="feature-product-item col-auto px-0">
+        <app-feature-product [product]="product"></app-feature-product>
+      </div>
+    </div>
+
+  </div>
+
+</div>
