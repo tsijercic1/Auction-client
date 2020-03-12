@@ -10,7 +10,7 @@ import environment from '../../../environments/environment';
 })
 export class ShopListComponent implements OnInit {
 
-  private products: Array<Product>;
+  public products: Array<Product>;
 
   constructor(private productsService: ProductsService) {
     this.products = new Array<Product>();

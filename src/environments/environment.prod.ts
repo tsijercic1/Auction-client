@@ -1,5 +1,5 @@
 export default {
-  apiUrl: 'http://localhost:8080/api',
-  baseUrl: 'http://localhost:8080',
+  apiUrl: 'https://auction-api-ts.herokuapp.com/api',
+  baseUrl: 'https://auction-api-ts.herokuapp.com/',
   production: true
 };

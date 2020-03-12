@@ -10,8 +10,6 @@ export class ShowcaseProductComponent implements OnInit {
   @Input('product')
   public product: Product;
 
-
-
   constructor() {
   }
 

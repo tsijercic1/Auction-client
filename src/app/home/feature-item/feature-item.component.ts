@@ -8,7 +8,7 @@ import {Product} from '../../product.model';
 })
 export class FeatureItemComponent implements OnInit {
   @Input('product')
-  private product: Product;
+  public product: Product;
 
   constructor() {
 
