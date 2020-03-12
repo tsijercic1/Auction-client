@@ -1,21 +1,4 @@
-<nav class="navbar navbar-dark py-0" style="background-color: #252525;" >
-  <div class="container justify-content-center">
-    <div class="row w-100 justify-content-between">
-      <div class="navbar-header col-sm-5 mr-3">
-        <a href="https://facebook.com" class="navbar-brand"><img src="../../assets/svg/facebook.svg" height="25px" width="25px" alt="Facebook"/></a>
-        <a href="https://twitter.com" class="navbar-brand"><img src="../../assets/svg/twitter.svg" height="25px" width="25px" alt="Twitter"/></a>
-        <a href="https://instagram.com" class="navbar-brand"><img src="../../assets/svg/instagram.svg" height="25px" width="25px" alt="Instagram"/></a>
-        <a href="https://google.com" class="navbar-brand"><img src="../../assets/svg/google-plus.svg" height="25px" width="25px" alt="google+"/></a>
-      </div>
-      <div class="navbar-nav col-sm-5 text-right my-auto ml-1">
-        <span *ngIf="!loginService.isLoggedIn; else elseBlock">
-          <span class="text-secondary nav-item" style="word-spacing: 15px;font-size: 0.80em;"><a class="text-light" routerLink="/login">Login</a> or <a style="word-spacing: initial" class="text-light" routerLink="/register">Create an account</a></span>
-        </span>
-        <ng-template #elseBlock><a class="text-light" (click)="logout()">Logout</a></ng-template>
-      </div>
-    </div>
-  </div>
-</nav>
+<app-top-header></app-top-header>
 
 <div class="container">
   <nav class="navbar navbar-expand navbar-light bg-light row bg-white">
@@ -47,6 +30,14 @@
   </nav>
 </div>
 
+
+
+
+<nav id="breadcrumbs" aria-label="breadcrumb" class="breadcrumb-bg-color row py-1">
+  <ol class="breadcrumb breadcrumb-bg-color col-md-auto offset-1 pl-5 my-auto" id="breadcrumb">
+  </ol>
+</nav>
+
 <div class="p-0 m-0 ">
   <div class="container">
     <div class="row">
@@ -59,9 +50,3 @@
     </div>
   </div>
 </div>
-
-
-<nav id="breadcrumbs" aria-label="breadcrumb" class="breadcrumb-bg-color row py-1">
-  <ol class="breadcrumb breadcrumb-bg-color col-md-auto offset-1 pl-5 my-auto" id="breadcrumb">
-  </ol>
-</nav>

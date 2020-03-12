@@ -1,0 +1,20 @@
+@import "src/sass/variables";
+
+.dark-background {
+  background: $dark-background;
+}
+
+.icon {
+  &__25 {
+    height: 25px;
+    width: 25px;
+  }
+  &__30 {
+    height: 30px;
+    width: 30px;
+  }
+  &__35 {
+    height: 35px;
+    width: 35px;
+  }
+}

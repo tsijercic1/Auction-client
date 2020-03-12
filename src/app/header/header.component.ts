@@ -10,7 +10,7 @@ import {LoginService} from '../login/login.service';
 export class HeaderComponent implements OnInit {
   public breadcrumb: string;
 
-  constructor(private router: Router, public loginService: LoginService) {
+  constructor(private router: Router) {
     this.router.events.subscribe(_ => {
       this.breadcrumb = this.router.routerState.snapshot.url;
       const length = this.breadcrumb.split('/').length;
@@ -48,8 +48,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  logout() {
-    this.loginService.logout();
-  }
 }

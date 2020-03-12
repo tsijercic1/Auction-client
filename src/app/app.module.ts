@@ -24,6 +24,7 @@ import { SingleProductComponent } from './shop/single-product/single-product.com
 import { ShowcaseProductComponent } from './home/showcase-product/showcase-product.component';
 import { FeatureItemComponent } from './home/feature-item/feature-item.component';
 import { FeatureProductComponent } from './home/feature-product/feature-product.component';
+import { TopHeaderComponent } from './header/top-header/top-header.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FeatureProductComponent } from './home/feature-product/feature-product.
     ShowcaseProductComponent,
     FeatureItemComponent,
     FeatureProductComponent,
+    TopHeaderComponent,
   ],
   imports: [
     BrowserModule,

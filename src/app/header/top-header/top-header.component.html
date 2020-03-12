@@ -1,0 +1,30 @@
+<div class="p-0 m-0 dark-background py-2">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-xs-6">
+          <a href="https://facebook.com" class="mr-2">
+            <img src="../../../assets/svg/facebook.svg" alt="Facebook"  class="icon__25" />
+          </a>
+          <a href="https://twitter.com" class="mr-2">
+            <img src="../../../assets/svg/twitter.svg" alt="Twitter"  class="icon__25" />
+          </a>
+          <a href="https://instagram.com" class="mr-2">
+            <img src="../../../assets/svg/instagram.svg" alt="Instagram"  class="icon__25" />
+          </a>
+          <a href="https://google.com" class="mr-2">
+            <img src="../../../assets/svg/google-plus.svg" alt="google+"  class="icon__25" />
+          </a>
+      </div>
+      <div class="col-xs-6">
+            <span *ngIf="!loginService.isLoggedIn; else elseBlock">
+              <span class="text-secondary" style="word-spacing: 15px;font-size: 0.80em;">
+                <a class="text-light" routerLink="/login">Login</a>
+                or
+                <a style="word-spacing: initial" class="text-light" routerLink="/register">Create an account</a>
+              </span>
+            </span>
+          <ng-template #elseBlock><a class="text-light" (click)="loginService.logout()">Logout</a></ng-template>
+      </div>
+    </div>
+  </div>
+</div>
