@@ -1,0 +1,30 @@
+<div class="p-0 m-0 py-3">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-xs">
+        <span class="purple-text main-name align-text-top" routerLink="/home">AUCTION</span>
+      </div>
+      <div class="col-sm-7 form-inline left-padding">
+        <input class="form-control mr-sm-n4 rounded-0 w-100" type="search"
+               placeholder="Search" aria-label="Search">
+        <span class="fa fa-search"></span>
+      </div>
+      <div class="col-xs-3">
+        <ul class="navbar-nav text-nowrap justify-content-between list-group-horizontal">
+          <li class="nav-item mr-3">
+            <a class="nav-link" routerLinkActive #rla1="routerLinkActive"
+               [ngClass]="rla1.isActive ? 'purple-text' : 'regular-text'" routerLink="/home">HOME</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link" routerLinkActive #rla2="routerLinkActive"
+               [ngClass]="rla2.isActive ? 'purple-text' : 'regular-text'" routerLink="/shop">SHOP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive #rla3="routerLinkActive"
+               [ngClass]="rla3.isActive ? 'purple-text' : 'regular-text'" routerLink="/myAccount">MY ACCOUNT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
