@@ -1,0 +1,13 @@
+@import "src/sass/variables";
+
+.menu-container {
+  box-shadow: 2px 2px #dddddd;
+  margin-bottom: 2px;
+
+}
+
+.menu-item {
+  display: block;
+  text-decoration: none;
+  color: $background-dark;
+}

@@ -21,11 +21,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpacerComponent } from './spacer/spacer.component';
 import { SingleProductComponent } from './shop/single-product/single-product.component';
-import { ShowcaseProductComponent } from './home/showcase-product/showcase-product.component';
 import { FeatureItemComponent } from './home/feature-item/feature-item.component';
 import { FeatureProductComponent } from './home/feature-product/feature-product.component';
 import { TopHeaderComponent } from './header/top-header/top-header.component';
 import { MainHeaderComponent } from './header/main-header/main-header.component';
+import { ShowcaseComponent } from './home/showcase/showcase.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +45,11 @@ import { MainHeaderComponent } from './header/main-header/main-header.component'
     FooterComponent,
     SpacerComponent,
     SingleProductComponent,
-    ShowcaseProductComponent,
     FeatureItemComponent,
     FeatureProductComponent,
     TopHeaderComponent,
     MainHeaderComponent,
+    ShowcaseComponent,
   ],
   imports: [
     BrowserModule,

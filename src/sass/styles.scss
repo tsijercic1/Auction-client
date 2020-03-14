@@ -18,3 +18,22 @@
 .regular-text {
   color: $background-dark;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.background-gray-light {
+  background: $gray-light;
+}
+
+.background-gray-dark {
+  background: $gray-dark;
+}
+
+.the-button {
+  background-color: transparent;
+  border: 3px solid $purple;
+  font-weight: bold;
+  box-shadow: 2px 2px #9e9e9e;
+}

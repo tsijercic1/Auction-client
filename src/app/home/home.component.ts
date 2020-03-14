@@ -4,7 +4,6 @@ import {Subcategory} from '../shop/category-list/category-item/subcategory.model
 import {CategoryService} from '../category.service';
 import {Product} from '../product.model';
 import {ProductsService} from '../shop/products.service';
-import environment from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
