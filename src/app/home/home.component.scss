@@ -1,15 +1,15 @@
+@import 'src/sass/variables';
+
 .home-showcase {
   height: 563px;
   width: 100%;
-  background-color: #fafafa;
+  background-color: $gray-light;
   margin-left: 0;
   margin-right: 0;
 }
 
 .hruler {
   height: 4px;
-  background-color: #ebebeb;
-  color: #7e6ed3;
 }
 .feature-container {
   width: 1100px;

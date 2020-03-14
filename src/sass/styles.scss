@@ -31,9 +31,21 @@
   background: $gray-dark;
 }
 
+.background-purple {
+  background: $purple;
+}
+
 .the-button {
   background-color: transparent;
   border: 3px solid $purple;
   font-weight: bold;
   box-shadow: 2px 2px #9e9e9e;
 }
+
+.transparent {
+  color: transparent;
+  background: transparent;
+  border-color: transparent;
+}
+
+

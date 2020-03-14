@@ -14,9 +14,12 @@ export class HomeComponent implements OnInit {
   public categories: Array<Category>;
   public featureCollections: Array<Product>;
   public featureProducts: Array<Product>;
+  public newArrivals: Array<Product>;
   public showcaseProduct: Product;
+  public selected: Array<string>;
 
   constructor(private categoryService: CategoryService, private productsService: ProductsService) {
+    this.selected = new Array<string>('background-purple', 'background-gray-dark', 'background-gray-dark');
     this.categories = new Array<Category>();
     this.categoryService.getCategories().subscribe(categories => {
       categories.forEach(category => {
@@ -26,9 +29,11 @@ export class HomeComponent implements OnInit {
     });
     this.featureCollections = new Array<Product>();
     this.featureProducts = new Array<Product>();
+    this.newArrivals = new Array<Product>();
     this.showcaseProduct = new Product(-1, '', '', 0, 0, 0, new Array<string>(''), null);
     this.productsService.getProducts().subscribe(products => {
       const collection = this.getRandom(products.slice(), 3);
+      const arrivals = this.getRandom(products.slice(), 8);
       products = this.getRandom(products, 4);
       collection.forEach(product => {
           this.featureCollections.push(new Product(
@@ -55,6 +60,18 @@ export class HomeComponent implements OnInit {
             null)
         );
       });
+      arrivals.forEach(product => {
+        this.newArrivals.push(new Product(
+          product.id,
+          product.name,
+          product.description,
+          product.startPrice,
+          product.auctionStart,
+          product.auctionEnd,
+          product.pictures.map(picture => picture),
+          null)
+        );
+      });
       this.showcaseProduct = this.featureProducts[0];
     });
 
@@ -75,5 +92,10 @@ export class HomeComponent implements OnInit {
       taken[x] = --len in taken ? taken[len] : len;
     }
     return result;
+  }
+
+  select(toSelect: number) {
+    this.selected = new Array<string>('background-gray-dark', 'background-gray-dark', 'background-gray-dark');
+    this.selected[toSelect] = 'background-purple';
   }
 }
