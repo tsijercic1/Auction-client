@@ -5,7 +5,12 @@
         <div class="menu-container">
           <p class="p-2 purple-text">PRODUCT CATEGORIES</p>
           <div>
-            <a class="menu-item p-2 border-bottom" *ngFor="let cat of categories" [routerLink]="['/shop?category=' + cat.name]">{{cat.name}}</a>
+            <a class="menu-item p-2 border-bottom"
+               *ngFor="let cat of categories"
+               [routerLink]="['/shop']"
+               [queryParams]="{'category':cat.name}">
+              {{cat.name}}
+            </a>
           </div>
         </div>
       </div>
