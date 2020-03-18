@@ -1,0 +1,15 @@
+<div class="p-0 m-0 py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ol class="breadcrumb">
+          <li *ngFor="let element of breadcrumbs">
+            <span [routerLink]="element.url" routerLinkActive="router-link-active">
+              {{ element.label }}
+            </span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

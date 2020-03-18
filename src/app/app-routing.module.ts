@@ -12,12 +12,12 @@ import {SingleProductComponent} from './shop/single-product/single-product.compo
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegistrationComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'shop', component: ShopComponent},
-  {path: 'shop/:id', component: SingleProductComponent},
-  {path: 'myAccount', component: MyAccountComponent},
+  {path: 'login', component: LoginComponent, data: {routeName:'Login'}},
+  {path: 'register', component: RegistrationComponent, data: {routeName:'Register'}},
+  {path: 'home', component: HomeComponent, data: {routeName:'Home'}},
+  {path: 'shop', component: ShopComponent, data: {routeName:'Shop'}},
+  {path: 'shop/:id', component: SingleProductComponent, data: {routeName:'Shop/Product'}},
+  {path: 'myAccount', component: MyAccountComponent, data: {routeName:'My Account'}},
   {path: '**', component: NotFoundComponent}
 ];
 

@@ -26,6 +26,7 @@ import { FeatureProductComponent } from './home/feature-product/feature-product.
 import { TopHeaderComponent } from './header/top-header/top-header.component';
 import { MainHeaderComponent } from './header/main-header/main-header.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
+import { BreadcrumbComponent } from './header/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ShowcaseComponent } from './home/showcase/showcase.component';
     TopHeaderComponent,
     MainHeaderComponent,
     ShowcaseComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,
