@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col">
         <ol class="breadcrumb">
-          <li *ngFor="let element of breadcrumbs">
+          <li *ngFor="let element of breadcrumbs; let isLast=last">
             <span [routerLink]="element.url" routerLinkActive="router-link-active">
-              {{ element.label }}
+              {{ element.label }}{{isLast ? '' : ' /&nbsp;'}}
             </span>
           </li>
         </ol>
