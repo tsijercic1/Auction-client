@@ -1,4 +1,5 @@
 import {Bid} from './bid.model';
+import {ProductResponseData} from './shop/products.service';
 
 
 export class Product {
@@ -12,16 +13,17 @@ export class Product {
   public bids: Array<Bid>;
 
 
-  constructor(id, name, description, startPrice, auctionStart, auctionEnd, pictures: Array<string>, bids: Array<Bid>) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.startPrice = startPrice;
-    this.auctionStart = auctionStart;
-    this.auctionEnd = auctionEnd;
-    this.pictures = pictures;
-    this.bids = bids;
+  constructor(product: ProductResponseData) {
+    this.id = product.id;
+    this.name = product.name;
+    this.description = product.description;
+    this.startPrice = product.startPrice;
+    this.auctionStart = product.auctionStart;
+    this.auctionEnd = product.auctionEnd;
+    this.pictures = product.pictures.map(picture => picture);
+    this.bids = new Array<Bid>();
   }
+
 
   public getMainPicture() {
     if (this.pictures.length > 0) {

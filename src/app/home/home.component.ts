@@ -30,47 +30,24 @@ export class HomeComponent implements OnInit {
     this.featureCollections = new Array<Product>();
     this.featureProducts = new Array<Product>();
     this.newArrivals = new Array<Product>();
-    this.showcaseProduct = new Product(-1, '', '', 0, 0, 0, new Array<string>(''), null);
+    this.showcaseProduct = new Product(
+      {id:-1, name:'', description:'',startPrice: 0,auctionStart: 0,
+        auctionEnd:0,pictures: new Array<string>(''), category: null}
+      );
     this.productsService.getProducts().subscribe(products => {
       const collection = this.getRandom(products.slice(), 3);
       const arrivals = this.getRandom(products.slice(), 8);
       products = this.getRandom(products, 4);
       collection.forEach(product => {
-          this.featureCollections.push(new Product(
-            product.id,
-            product.name,
-            product.description,
-            product.startPrice,
-            product.auctionStart,
-            product.auctionEnd,
-            product.pictures.map(picture => picture),
-            null)
-          );
+          this.featureCollections.push(new Product(product));
         }
         );
       products.forEach(product => {
-        this.featureProducts.push(new Product(
-            product.id,
-            product.name,
-            product.description,
-            product.startPrice,
-            product.auctionStart,
-            product.auctionEnd,
-            product.pictures.map(picture => picture),
-            null)
-        );
+        this.featureProducts.push(new Product(product));
       });
+
       arrivals.forEach(product => {
-        this.newArrivals.push(new Product(
-          product.id,
-          product.name,
-          product.description,
-          product.startPrice,
-          product.auctionStart,
-          product.auctionEnd,
-          product.pictures.map(picture => picture),
-          null)
-        );
+        this.newArrivals.push(new Product(product));
       });
       this.showcaseProduct = this.featureProducts[0];
     });

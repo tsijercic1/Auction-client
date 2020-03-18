@@ -35,7 +35,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "node_modules/bootstrap/scss"
+                "node_modules/bootstrap/scss",
+                "src/sass/"
               ]
             },
             "scripts": [
@@ -146,7 +147,7 @@
   "defaultProject": "client",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }

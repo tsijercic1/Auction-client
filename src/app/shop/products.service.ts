@@ -2,18 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import environment from '../../environments/environment';
 
-interface SubcategoryResponseData {
+export interface SubcategoryResponseData {
   id: number;
   name: string;
 }
 
-interface CategoryResponseData {
+export interface CategoryResponseData {
   id: number;
   name: string;
   subcategories: Array<SubcategoryResponseData>;
 }
 
-interface ProductResponseData {
+export interface ProductResponseData {
   id: number;
   name: string;
   description: string;

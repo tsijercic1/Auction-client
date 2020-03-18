@@ -11,12 +11,9 @@ export class ShopComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       if (params) {
-        console.log(params);
       } else {
-        console.log('No params...');
       }
     }, error => {
-      console.log(error);
     });
   }
 

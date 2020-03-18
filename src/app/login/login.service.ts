@@ -32,11 +32,9 @@ export class LoginService {
         ).subscribe(
           responseData => {
             this.isLoggedIn = true;
-            console.log(responseData);
           },
         error => {
           this.isLoggedIn = false;
-          console.log((error));
         });
   }
 
@@ -49,8 +47,6 @@ export class LoginService {
       });
     response.subscribe(loginResponseData => {
       this.isLoggedIn = true;
-      console.log('response on login');
-      console.log(loginResponseData);
       localStorage.setItem('token', loginResponseData.token);
     }, error => {
       localStorage.removeItem('token');

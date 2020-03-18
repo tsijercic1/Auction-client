@@ -14,6 +14,7 @@ interface IBreadCrumb {
 })
 export class BreadcrumbComponent implements OnInit {
   public breadcrumbs: Array<IBreadCrumb>;
+  public lastCrumb: IBreadCrumb;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.buildBreadCrumb(this.activatedRoute.root);
@@ -32,7 +33,6 @@ export class BreadcrumbComponent implements OnInit {
     )
       .subscribe(
         route => {
-          console.log('ngOnInit');
           this.buildBreadCrumb(route.root);
         }
       );
@@ -48,7 +48,8 @@ export class BreadcrumbComponent implements OnInit {
     if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart.split(':')[1];
       path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
-      label = route.snapshot.params[paramName];
+      // label = route.snapshot.params[paramName];
+      label = route.snapshot.data.routeName;
     }
 
     const nextUrl = path ? `${url}/${path}` : url;
@@ -57,7 +58,7 @@ export class BreadcrumbComponent implements OnInit {
       label,
       url: nextUrl,
     };
-
+    this.lastCrumb = breadcrumb.label ? breadcrumb : (this.lastCrumb) ? this.lastCrumb : {label: '', url: ''};
     const newBreadcrumbs = breadcrumb.label ? [...breadcrumbs, breadcrumb] : [...breadcrumbs];
     if (route.firstChild) {
       return this.buildBreadCrumb(route.firstChild, nextUrl, newBreadcrumbs);

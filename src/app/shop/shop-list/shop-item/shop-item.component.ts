@@ -29,9 +29,4 @@ export class ShopItemComponent implements OnInit {
   public getStartPrice() {
     return this.product.startPrice;
   }
-
-  public goToProduct(id: number) {
-    console.log(id);
-    // this.router.navigateByUrl('/shop/')
-  }
 }

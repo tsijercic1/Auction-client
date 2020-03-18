@@ -17,13 +17,11 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit(loginForm: NgForm) {
-    console.log(loginForm.value);
     const email = loginForm.value.email;
     const password = loginForm.value.password;
     const response = await this.loginService.login(email, password);
     if (response) {
       response.subscribe(userData => {
-        console.log(userData);
         loginForm.reset();
         this.router.navigateByUrl('/home');
       }, _ => {

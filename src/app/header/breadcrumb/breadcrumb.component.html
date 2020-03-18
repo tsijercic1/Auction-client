@@ -1,10 +1,15 @@
-<div class="p-0 m-0 py-3">
+<div class="p-0 m-0  background-gray-light">
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <ol class="breadcrumb">
-          <li *ngFor="let element of breadcrumbs; let isLast=last">
-            <span [routerLink]="element.url" routerLinkActive="router-link-active">
+    <div class="row justify-content-between">
+      <div class="col-xs my-auto text-uppercase">
+        <span>{{lastCrumb.label}}</span>
+      </div>
+      <div class="col-xs">
+        <ol class="breadcrumb mb-0 bg-transparent px-0 text-uppercase regular-text">
+          <li *ngFor="let element of breadcrumbs; let isLast=last" >
+            <span class="{{isLast ? 'lato-regular' : 'lato-light'}}"
+                  [routerLink]="element.url"
+                  routerLinkActive="router-link-active">
               {{ element.label }}{{isLast ? '' : ' /&nbsp;'}}
             </span>
           </li>

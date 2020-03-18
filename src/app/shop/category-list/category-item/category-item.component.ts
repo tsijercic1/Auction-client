@@ -24,14 +24,12 @@ export class CategoryItemComponent implements OnInit {
   }
 
   public onCategoryClick() {
-    console.log(this.category.name);
   }
 
   public onSubcategoryClick(subId: number) {
     const subcategories = this.category.subcategories.filter(subcategory => subcategory.id === subId);
     if (subcategories.length !== 0) {
       const sub = subcategories[0];
-      console.log('?category=' + this.category.name + '&subcategory=' + sub.name);
     }
   }
 }

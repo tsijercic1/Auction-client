@@ -15,18 +15,13 @@ export class SingleProductComponent implements OnInit {
   public highestBid;
 
   constructor(private productsService: ProductsService, private router: Router, private route: ActivatedRoute) {
-    this.product = new Product(-1, '', '', 0, 0, 0, null, null);
+    this.product = new Product(
+      {id:-1, name:'', description:'',startPrice: 0,auctionStart: 0,
+        auctionEnd:0,pictures: new Array<string>(''), category: null}
+    );
     this.route.params.subscribe(params => {
       productsService.getProduct(params.id).subscribe(product => {
-        this.product = new Product(
-          product.id,
-          product.name,
-          product.description,
-          product.startPrice,
-          product.auctionStart,
-          product.auctionEnd,
-          product.pictures.map(picture => picture),
-          null  );
+        this.product = new Product(product);
         if (product.pictures.length !== 0) {
           this.currentPicture = this.product.pictures[0];
         } else {

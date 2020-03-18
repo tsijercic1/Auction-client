@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     path: 'shop', data: {routeName: 'Shop'},
     children: [
       {path: '', component: ShopComponent, },
-      {path: ':id', component: SingleProductComponent, data: {routeName: 'Product'}}
+      {path: ':id', component: SingleProductComponent, data: {routeName: 'Single Product'}}
     ]
   },
   {path: 'myAccount', component: MyAccountComponent, data: {routeName: 'My Account'}},

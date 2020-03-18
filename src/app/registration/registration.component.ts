@@ -18,7 +18,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   async onSubmit(registrationForm: NgForm) {
-    console.log(registrationForm.value);
     const firstName = registrationForm.value.first_name;
     const lastName = registrationForm.value.last_name;
     const email = registrationForm.value.email;
