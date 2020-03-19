@@ -1,0 +1,28 @@
+#subcategories {
+  list-style-type: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #9e9e9e;
+}
+
+#category-name {
+  width: 100%;
+  /*cursor: pointer;*/
+}
+
+/*li {*/
+/*  cursor: pointer;*/
+/*}*/
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.category-element:hover {
+  background-color: rgba(141, 127, 216, 0.46);
+}
+
+.subcategory-element:hover {
+  background-color: rgba(141, 127, 216, 0.46);
+  color: #2a2a2a;
+}

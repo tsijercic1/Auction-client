@@ -1,0 +1,45 @@
+.product-container {
+  /*height: 690px;*/
+}
+
+.product-picture {
+  width: 470px;
+  height: 570px;
+}
+
+.product-small-picture {
+  height: 110px;
+  width: 110px;
+}
+
+.price {
+  color: #8d7fd8;
+}
+
+.bid-input {
+  background-color: #ebebeb;
+  height: 54px;
+}
+
+.bid-button {
+  height: 54px;
+  width: 192px;
+  background-color: transparent;
+  border: 3px solid #7e6ed3;
+  font-weight: bold;
+}
+
+.pale {
+  color: #9d9d9d;
+}
+
+.picture-list {
+  width: 470px;
+}
+
+.picture-list div {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 8px;
+  margin-right: 7px;
+}

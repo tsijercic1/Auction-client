@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {LoginService} from './login.service';
+import {Router} from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  constructor(private loginService: LoginService, private router: Router) {
+  }
+
+  ngOnInit() {
+  }
+
+  async onSubmit(loginForm: NgForm) {
+    const email = loginForm.value.email;
+    const password = loginForm.value.password;
+    const response = await this.loginService.login(email, password);
+    if (response) {
+      response.subscribe(userData => {
+        loginForm.reset();
+        this.router.navigateByUrl('/home');
+      }, _ => {
+        this.router.navigateByUrl('/login');
+      });
+    }
+  }
+}

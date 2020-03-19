@@ -1,0 +1,60 @@
+@import 'src/sass/variables';
+
+.home-showcase {
+  height: 563px;
+  width: 100%;
+  background-color: $gray-light;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hruler {
+  height: 4px;
+}
+.feature-container {
+  width: 1100px;
+}
+
+.feature-list {
+  width: 100%;
+}
+
+
+.feature-collection-item {
+  height: 416px;
+  width: 350px;
+  /*background-color: #252525;*/
+}
+
+.feature-product-item {
+  height: 416px;
+  width: 260px;
+  /*background-color: #252525;*/
+}
+
+.spacer {
+  height: 25px;
+  background-color: transparent;
+  border: 0;
+}
+
+.category-container {
+  height: 100%;
+  width: 253px;
+  box-shadow: 2px 2px #dddddd;
+}
+
+
+.scroll-menu {
+  padding: 0;
+  height: 90%;
+  overflow-y: auto;
+}
+
+.scroll-item {
+  display: block;
+  text-decoration: none;
+  padding: 12px 12px 12px 12px;
+  color: #2a2a2a;
+}
+

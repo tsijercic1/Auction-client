@@ -1,0 +1,35 @@
+<div class="m-0 m-0 background-gray-light">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-sm-3 px-0 my-auto pr-4">
+        <div class="menu-container">
+          <p class="p-2 purple-text">PRODUCT CATEGORIES</p>
+          <div>
+            <a class="menu-item p-2 border-bottom"
+               *ngFor="let cat of categories"
+               [routerLink]="['/shop']"
+               [queryParams]="{'category':cat.name}">
+              {{cat.name}}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 my-auto">
+        <div>
+          <h2 class="regular-text">{{showcaseProduct.name}}</h2>
+          <h5 class="purple-text">Start from {{showcaseProduct.startPrice.toFixed(2)}}$</h5>
+          <p class="regular-text">{{showcaseProduct.description}}</p>
+          <input type="button" value="BID NOW >" class="rounded-0 p-2 px-5 align-middle the-button"/>
+        </div>
+      </div>
+      <div class="col-sm-5 px-0 my-auto">
+          <a routerLink="/shop/{{showcaseProduct.id}}">
+            <img
+              class="align-self-center w-100"
+              src="{{showcaseProduct.getMainPicture()}}"
+              alt="Product picture"/>
+          </a>
+      </div>
+    </div>
+  </div>
+</div>

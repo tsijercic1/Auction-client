@@ -1,0 +1,62 @@
+<app-showcase [categories]="categories" [showcaseProduct]="showcaseProduct"></app-showcase>
+<app-spacer></app-spacer>
+<div class="p-0 m-0">
+  <div class="container">
+    <div class="row">
+      <h3>Feature collection</h3>
+    </div>
+    <div class="row">
+      <hr class="hruler w-100 background-gray-dark">
+    </div>
+    <div class="row justify-content-between">
+      <div *ngFor="let product of featureCollections" class="feature-collection-item col-auto px-0">
+        <app-feature-item [product]="product"></app-feature-item>
+      </div>
+    </div>
+  </div>
+</div>
+<app-spacer></app-spacer>
+<div class="p-0 m-0">
+  <div class="container">
+    <div class="row">
+      <h3>Feature products</h3>
+    </div>
+    <div class="row">
+      <hr class="hruler w-100 background-gray-dark">
+    </div>
+    <div class="row justify-content-between">
+      <div *ngFor="let product of featureProducts" class="feature-product-item col-auto px-0">
+        <app-feature-product [product]="product"></app-feature-product>
+      </div>
+    </div>
+  </div>
+</div>
+<app-spacer></app-spacer>
+<div class="p-0 m-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs px-0" (click)="select(0)">
+        <h3 class="pr-4">New Arrivals</h3>
+        <hr class="hruler w-100" [ngClass]="selected[0]" >
+      </div>
+      <div class="col-xs px-0" (click)="select(1)">
+        <h3 class="pr-4">Top Rated</h3>
+        <hr class="hruler w-100" [ngClass]="selected[1]">
+      </div>
+      <div class="col-xs px-0" (click)="select(2)">
+        <h3 class="pr-4">Last Chance</h3>
+        <hr class="hruler w-100" [ngClass]="selected[2]">
+      </div>
+      <div class="col px-0">
+        <h3 class="transparent">Something</h3>
+        <hr class="hruler w-100 background-gray-dark">
+      </div>
+    </div>
+    <div class="row justify-content-between">
+      <div *ngFor="let product of newArrivals" class="feature-product-item col-auto px-0 mb-3">
+        <app-feature-product [product]="product" ></app-feature-product>
+      </div>
+    </div>
+  </div>
+</div>
+<app-spacer></app-spacer>

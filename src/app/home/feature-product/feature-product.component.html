@@ -1,0 +1,5 @@
+<div class="m-0 p-0">
+  <a routerLink="/shop/{{product.id}}"><img src="{{product.getMainPicture()}}" alt="Picture" class="feature-image"></a>
+  <h4 id="shop-item-header">  {{ product.name }}</h4>
+  <p id="shop-item-paragraph">Starts from {{ product.startPrice.toFixed(2)}}$</p>
+</div>
