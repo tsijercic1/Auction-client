@@ -8,7 +8,7 @@ export class Product {
   public description;
   public startPrice;
   public auctionStart;
-  public auctionEnd;
+  public auctionEnd:number;
   public pictures: Array<string>;
   public bids: Array<Bid>;
 

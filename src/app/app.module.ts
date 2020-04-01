@@ -27,6 +27,10 @@ import { TopHeaderComponent } from './header/top-header/top-header.component';
 import { MainHeaderComponent } from './header/main-header/main-header.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { BreadcrumbComponent } from './header/breadcrumb/breadcrumb.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import { ProductGridItemComponent } from './product-grid-item/product-grid-item.component';
 
 @NgModule({
   declarations: [
@@ -52,14 +56,18 @@ import { BreadcrumbComponent } from './header/breadcrumb/breadcrumb.component';
     MainHeaderComponent,
     ShowcaseComponent,
     BreadcrumbComponent,
+    ProductGridItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    CommonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        CommonModule,
+        BrowserAnimationsModule,
+        MatGridListModule,
+        MatCardModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

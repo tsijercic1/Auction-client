@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../../product.model';
-import {ProductsService} from '../products.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import environment from '../../../environments/environment';
+import {ProductsService} from '../products.service';
+import {SingleProductResponse} from './single-product.model';
 
 @Component({
   selector: 'app-single-product',
@@ -10,24 +9,18 @@ import environment from '../../../environments/environment';
   styleUrls: ['./single-product.component.scss']
 })
 export class SingleProductComponent implements OnInit {
-  public product: Product;
+  public product: SingleProductResponse;
   public currentPicture: string;
-  public highestBid;
 
   constructor(private productsService: ProductsService, private router: Router, private route: ActivatedRoute) {
-    this.product = new Product(
-      {id:-1, name:'', description:'',startPrice: 0,auctionStart: 0,
-        auctionEnd:0,pictures: new Array<string>(''), category: null}
-    );
+    this.product = null;
     this.route.params.subscribe(params => {
-      productsService.getProduct(params.id).subscribe(product => {
-        this.product = new Product(product);
-        if (product.pictures.length !== 0) {
-          this.currentPicture = this.product.pictures[0];
-        } else {
-          this.currentPicture = '';
+      productsService.getSingleProduct(params.id).subscribe(productResponse =>{
+        this.product = productResponse;
+        if (this.product.product.pictures.length !== 0) {
+          this.currentPicture = this.product.product.pictures.map(picture => picture.url)[0];
         }
-      }, error => {
+      },  error => {
         this.router.navigateByUrl('/404');
       });
     });
@@ -36,8 +29,67 @@ export class SingleProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  placeBid(amount: number) {
+
+  }
+
   setCurrentPicture(event: Event) {
     const element = (event.target as Element);
     this.currentPicture = element.attributes.getNamedItem('src').value;
+  }
+
+  getPictures() {
+    return this.product ? this.product.product.pictures.map(picture => picture.url) : '';
+  }
+
+  getName() {
+    return this.product ? this.product.product.name : '';
+  }
+
+  getDescription() {
+    return this.product ? this.product.product.description : '';
+  }
+
+  getStartPrice() {
+    return this.product ? this.product.product.startPrice.toFixed(2) : '';
+  }
+
+  getHighestBid() {
+    return this.product
+      ? this.product.product.highestBid === 0.00
+        ? this.getStartPrice()
+        : this.product.product.highestBid.toFixed(2)
+      : '';
+  }
+
+  getNumberOfBids() {
+    return 3;
+  }
+
+  getTimeLeft() {
+    if (!this.product) {
+      return '';
+    }
+    let unit = 'seconds';
+    console.log(this.product.product.auctionEnd);
+    console.log(new Date(this.product.product.auctionEnd).getTime());
+    let time = new Date(this.product.product.auctionEnd).getTime();
+    time = (time-new Date().getTime())/1000;
+    if (time < 0) {
+      return 'Closed';
+    }
+    if (time > 60) {
+      unit = 'minutes';
+      time = time / 60;
+      if (time > 60) {
+        unit = 'hours';
+        time = time / 60;
+      }
+      if (time > 24) {
+        unit = 'days';
+        time = time / 24;
+      }
+    }
+    return time.toFixed(0)+' '+unit;
   }
 }
