@@ -62,8 +62,8 @@ export class ProductsService {
     return this.http.get<ProductResponseData>(environment.apiUrl + '/products/' + id);
   }
 
-  public getProducts() {
-    return this.http.get<Array<ProductResponseData>>(environment.apiUrl + '/products');
+  public getProducts(params) {
+    return this.http.get<Array<ProductResponseData>>(environment.apiUrl + '/products',{params});
   }
 
   public getSingleProduct(id: number) {

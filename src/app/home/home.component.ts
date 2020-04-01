@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       {id:-1, name:'', description:'',startPrice: 0,auctionStart: 0,
         auctionEnd:0,pictures: new Array<string>(''), category: null}
       );
-    this.productsService.getProducts().subscribe(products => {
+    this.productsService.getProducts({}).subscribe(products => {
       const collection = this.getRandom(products.slice(), 3);
       const arrivals = this.getRandom(products.slice(), 8);
       products = this.getRandom(products, 4);

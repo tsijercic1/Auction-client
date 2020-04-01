@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ProductsService} from '../products.service';
+import {ProductsService, SingleBidItemInterface} from '../products.service';
 import {SingleProductResponse} from './single-product.model';
+import {BidService} from '../../bid.service';
 
 @Component({
   selector: 'app-single-product',
@@ -12,7 +13,10 @@ export class SingleProductComponent implements OnInit {
   public product: SingleProductResponse;
   public currentPicture: string;
 
-  constructor(private productsService: ProductsService, private router: Router, private route: ActivatedRoute) {
+  constructor(private productsService: ProductsService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private bidService: BidService) {
     this.product = null;
     this.route.params.subscribe(params => {
       productsService.getSingleProduct(params.id).subscribe(productResponse =>{
@@ -29,8 +33,17 @@ export class SingleProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  placeBid(amount: number) {
-
+  placeBid() {
+    const amount = Number((document.getElementById('bidField') as HTMLInputElement).value);
+    console.log(amount);
+    const onResponse = (response: Array<SingleBidItemInterface>) => {
+      this.product.bids = response;
+    };
+    const onError = (error) => {
+      console.log(error);
+      alert(error.error.message);
+    };
+    this.bidService.placeBid(amount, this.product.product.id,onResponse,onError);
   }
 
   setCurrentPicture(event: Event) {
@@ -63,7 +76,7 @@ export class SingleProductComponent implements OnInit {
   }
 
   getNumberOfBids() {
-    return 3;
+    return this.product !== null ? this.product.bids.length : 0;
   }
 
   getTimeLeft() {

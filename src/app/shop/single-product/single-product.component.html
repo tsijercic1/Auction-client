@@ -21,8 +21,8 @@
         <h3 class="price lato-bold">Start from - ${{getStartPrice()}}</h3>
         <app-spacer></app-spacer>
         <div class="justify-content-center mt-2">
-          <input type="number" step="0.01" class="rounded-0 border-0 p-3 align-middle bid-input mr-4"/>
-          <input type="button" value="PLACE BID >" class="rounded-0 p-2 align-middle bid-button"/>
+          <input type="number" step="1" id="bidField" class="rounded-0 border-0 p-3 align-middle bid-input mr-4"/>
+          <input type="button" value="PLACE BID >" (click)="placeBid()" class="rounded-0 p-2 align-middle bid-button"/>
         </div>
         <p class="pale">Enter {{getHighestBid()}} or more</p>
         <app-spacer></app-spacer>
