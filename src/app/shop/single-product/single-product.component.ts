@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductsService, SingleBidItemInterface} from '../products.service';
-import {SingleProductResponse} from './single-product.model';
+import {SingleBidItem, SingleProductResponse} from './single-product.model';
 import {BidService} from '../../bid.service';
+import {PopupDialogComponent} from '../../popup-dialog/popup-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-single-product',
@@ -12,11 +14,16 @@ import {BidService} from '../../bid.service';
 export class SingleProductComponent implements OnInit {
   public product: SingleProductResponse;
   public currentPicture: string;
+  displayedColumns: Array<string>;
+  options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   constructor(private productsService: ProductsService,
               private router: Router,
               private route: ActivatedRoute,
-              private bidService: BidService) {
+              private bidService: BidService,
+              public dialog: MatDialog) {
+    this.displayedColumns = new Array<string>();
+    this.displayedColumns.push('bidder', 'date', 'amount');
     this.product = null;
     this.route.params.subscribe(params => {
       productsService.getSingleProduct(params.id).subscribe(productResponse =>{
@@ -24,6 +31,16 @@ export class SingleProductComponent implements OnInit {
         if (this.product.product.pictures.length !== 0) {
           this.currentPicture = this.product.product.pictures.map(picture => picture.url)[0];
         }
+        this.product.bids.sort((a,b)=>{
+          if (a.bidDate > b.bidDate) {
+            return -1;
+          }else if (a.bidDate === b.bidDate) {
+            return 0;
+          } else {
+            return 1;
+          }
+        }
+      )
       },  error => {
         this.router.navigateByUrl('/404');
       });
@@ -35,13 +52,22 @@ export class SingleProductComponent implements OnInit {
 
   placeBid() {
     const amount = Number((document.getElementById('bidField') as HTMLInputElement).value);
-    console.log(amount);
     const onResponse = (response: Array<SingleBidItemInterface>) => {
       this.product.bids = response;
     };
     const onError = (error) => {
-      console.log(error);
-      alert(error.error.message);
+      if (error.status === 401) {
+        error.error.message = 'You need to log in!';
+      }
+      const dialogRef = this.dialog.open(PopupDialogComponent, {
+        width: '250px',
+        data: {message:error.error.message}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+
     };
     this.bidService.placeBid(amount, this.product.product.id,onResponse,onError);
   }
@@ -104,5 +130,9 @@ export class SingleProductComponent implements OnInit {
       }
     }
     return time.toFixed(0)+' '+unit;
+  }
+
+  getBidDateFromBid(bid: SingleBidItem) {
+    return new Date(bid.bidDate).toLocaleDateString('en-US', this.options);
   }
 }

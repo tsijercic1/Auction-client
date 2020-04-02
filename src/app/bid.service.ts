@@ -14,7 +14,7 @@ export class BidService {
 
   public placeBid(amount: number, productId: number,onResponse,onError) {
     if (!this.loginService.isLoggedIn) {
-      alert('Not logged in!');
+      // alert('Not logged in!');
     }
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('token') });

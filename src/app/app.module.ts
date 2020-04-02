@@ -31,6 +31,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { ProductGridItemComponent } from './product-grid-item/product-grid-item.component';
+import {MatTableModule} from '@angular/material/table';
+import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -57,17 +62,22 @@ import { ProductGridItemComponent } from './product-grid-item/product-grid-item.
     ShowcaseComponent,
     BreadcrumbComponent,
     ProductGridItemComponent,
+    PopupDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        CommonModule,
-        BrowserAnimationsModule,
-        MatGridListModule,
-        MatCardModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatTableModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Category} from './category.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-category-item',
@@ -12,7 +13,7 @@ export class CategoryItemComponent implements OnInit {
   public category: Category;
   public clicked: boolean;
 
-  constructor() {
+  constructor(private router:Router) {
     this.clicked = false;
   }
 
@@ -24,12 +25,14 @@ export class CategoryItemComponent implements OnInit {
   }
 
   public onCategoryClick() {
+    this.router.navigate(['/shop'],{queryParams:{category:this.category.name}})
   }
 
   public onSubcategoryClick(subId: number) {
     const subcategories = this.category.subcategories.filter(subcategory => subcategory.id === subId);
     if (subcategories.length !== 0) {
       const sub = subcategories[0];
+      this.router.navigate(['/shop'],{queryParams:{category:this.category.name,subcategory:sub.name}})
     }
   }
 }

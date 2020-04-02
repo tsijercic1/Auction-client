@@ -11,6 +11,18 @@
   font-family: 'FontAwesome',sans-serif;
 }
 
+.left_border_gray {
+  border-left: 1px solid $gray-dark;
+}
+
+.right_border_gray {
+  border-right: 1px solid $gray-dark;
+}
+
+.top_border_gray {
+  border-top: 1px solid $gray-dark;
+}
+
 .purple-text {
   color: $purple;
 }

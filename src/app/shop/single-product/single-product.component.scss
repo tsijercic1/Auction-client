@@ -1,4 +1,16 @@
 @import "styles";
+
+.profile-img {
+  border-radius: 50%;
+  max-height: 50px;
+  padding: 5px;
+}
+
+.table-header {
+  @extend .lato-regular;
+  font-size: 18px;
+}
+
 .product-picture {
   width: 470px;
   height: 470px;

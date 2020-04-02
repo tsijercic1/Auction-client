@@ -16,12 +16,14 @@ export class ShopListComponent implements OnInit {
   constructor(private productsService: ProductsService, private activatedRoute: ActivatedRoute) {
     this.products = new Array<Product>();
     activatedRoute.queryParams.subscribe(next => {
-      productsService.getProducts(activatedRoute.snapshot.queryParams).subscribe(products => {
+      const subscription = productsService.getProducts(activatedRoute.snapshot.queryParams).subscribe(products => {
         this.products = new Array<Product>();
         products
           .map(product => new Product(product))
           .forEach(product => this.products.push(product));
-      }, error => alert('Server is down. Please come back later'));
+      }, error => {
+
+      })
     });
   }
 

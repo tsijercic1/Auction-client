@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         loginForm.reset();
         this.router.navigateByUrl('/home');
       }, _ => {
-        alert('Bad credentials');
+        // alert('Bad credentials');
         this.router.navigateByUrl('/login');
       });
     }
