@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import {LoginService} from './login.service';
 import {Router} from '@angular/router';
 import {$} from 'jquery';
+import {PopupDialogComponent} from '../popup-dialog/popup-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,8 @@ import {$} from 'jquery';
 export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService,
-              private router: Router) {
+              private router: Router,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -27,7 +30,15 @@ export class LoginComponent implements OnInit {
         loginForm.reset();
         this.router.navigateByUrl('/home');
       }, _ => {
-        // alert('Bad credentials');
+        const message = 'Bad email or password!';
+        const dialogRef = this.dialog.open(PopupDialogComponent, {
+          width: '250px',
+          data: {message}
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+        });
         this.router.navigateByUrl('/login');
       });
     }
