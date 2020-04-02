@@ -1,6 +1,6 @@
-<div class="row">
-  <app-shop-item *ngFor="let product of products" [product]=product class="col">
-
-  </app-shop-item>
-
-</div>
+<mat-grid-list cols="3" rowHeight="400px" gutterSize="20px">
+  <mat-grid-tile colspan="1" rowspan="1" *ngFor="let product of products">
+    <app-product-grid-item class="h-100 w-100" [product]="product">
+    </app-product-grid-item>
+  </mat-grid-tile>
+</mat-grid-list>

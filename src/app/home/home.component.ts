@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       {id:-1, name:'', description:'',startPrice: 0,auctionStart: 0,
         auctionEnd:0,pictures: new Array<string>(''), category: null}
       );
-    this.productsService.getProducts().subscribe(products => {
+    this.productsService.getProducts({}).subscribe(products => {
       const collection = this.getRandom(products.slice(), 3);
       const arrivals = this.getRandom(products.slice(), 8);
       products = this.getRandom(products, 4);
@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
       products.forEach(product => {
         this.featureProducts.push(new Product(product));
       });
-
       arrivals.forEach(product => {
         this.newArrivals.push(new Product(product));
       });
@@ -61,7 +60,7 @@ export class HomeComponent implements OnInit {
     let len = arr.length;
     const taken = new Array(len);
     if (n > len) {
-      return result;
+      return arr;
     }
     while (n--) {
       const x = Math.floor(Math.random() * len);

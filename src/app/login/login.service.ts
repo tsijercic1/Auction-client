@@ -22,7 +22,7 @@ export class LoginService {
     }
   }
 
-  private refresh(token: string) {
+  public refresh(token: string) {
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('token') });
     const options = { headers };
