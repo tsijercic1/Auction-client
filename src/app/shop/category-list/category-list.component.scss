@@ -1,4 +1,11 @@
-#category-list {
+@import "src/sass/styles";
+
+.category-list {
   border: 1px solid #d7d7d7;
   padding: 20px;
+  &__header {
+    @extend .lato-bold;
+    color: $purple;
+    font-size: 14px;
+  }
 }

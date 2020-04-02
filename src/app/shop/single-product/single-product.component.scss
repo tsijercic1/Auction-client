@@ -1,10 +1,23 @@
-.product-container {
-  /*height: 690px;*/
+@import "styles";
+
+.profile-img {
+  border-radius: 50%;
+  max-height: 50px;
+  padding: 5px;
+}
+
+.table-header {
+  @extend .lato-regular;
+  font-size: 18px;
 }
 
 .product-picture {
   width: 470px;
-  height: 570px;
+  height: 470px;
+}
+
+.font14 {
+  font-size: 16px;
 }
 
 .product-small-picture {
@@ -12,8 +25,18 @@
   width: 110px;
 }
 
+.watch_button {
+  padding: 5px;
+  border: 3px solid $gray-dark;
+}
+
+.name {
+  font-size: 35px;
+}
+
 .price {
   color: #8d7fd8;
+  font-size: 26px;
 }
 
 .bid-input {

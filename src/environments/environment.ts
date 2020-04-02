@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export default {
-  apiUrl: 'http://localhost:8080/api',
   baseUrl: 'http://localhost:8080',
+  apiUrl: 'http://localhost:8080/api',
   production: false
 };
 

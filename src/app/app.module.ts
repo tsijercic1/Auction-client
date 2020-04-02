@@ -27,6 +27,15 @@ import { TopHeaderComponent } from './header/top-header/top-header.component';
 import { MainHeaderComponent } from './header/main-header/main-header.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { BreadcrumbComponent } from './header/breadcrumb/breadcrumb.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import { ProductGridItemComponent } from './product-grid-item/product-grid-item.component';
+import {MatTableModule} from '@angular/material/table';
+import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -52,13 +61,22 @@ import { BreadcrumbComponent } from './header/breadcrumb/breadcrumb.component';
     MainHeaderComponent,
     ShowcaseComponent,
     BreadcrumbComponent,
+    ProductGridItemComponent,
+    PopupDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatTableModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
