@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
       products.forEach(product => {
         this.featureProducts.push(new Product(product));
       });
-
       arrivals.forEach(product => {
         this.newArrivals.push(new Product(product));
       });
@@ -61,7 +60,7 @@ export class HomeComponent implements OnInit {
     let len = arr.length;
     const taken = new Array(len);
     if (n > len) {
-      return result;
+      return arr;
     }
     while (n--) {
       const x = Math.floor(Math.random() * len);
